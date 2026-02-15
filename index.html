@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+
+<html lang="bn">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>মামা ভাগ্নে ফ্যাশন হাউস | Mama Vagne Fashion House</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&family=Noto+Sans+Bengali:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+
+            font-family: 'Hind Siliguri', 'Noto Sans Bengali', sans-serif;
+
+            background: #0f172a;
+
+            overflow-x: hidden;
+
+        }
+
+
+
+        .bengali-font {
+
+            font-family: 'Noto Sans Bengali', sans-serif;
+
+        }
+
+
+
+        .gradient-bg {
+
+            background: linear-gradient(135deg, #0891b2 0%, #0e7490 50%, #155e75 100%);
+
+        }
+
+
+
+        .glass-effect {
+
+            background: rgba(255, 255, 255, 0.1);
+
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+        }
+
+
+
+        .floating {
+
+            animation: float 6s ease-in-out infinite;
+
+        }
+
+
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+        }
+
+
+
+        .pulse-ring {
+
+            position: absolute;
+
+            border-radius: 50%;
+
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+
+        }
+
+
+
+        @keyframes pulse-ring {
+
+            0% {
+                transform: scale(0.33);
+                opacity: 1;
+            }
+
+            80%,
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+
+        }
+
+
+
+        .text-shadow {
+
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+
+        }
+
+
+
+        .card-3d {
+
+            transform-style: preserve-3d;
+
+            transition: transform 0.5s;
+
+        }
+
+
+
+        .card-3d:hover {
+
+            transform: rotateY(5deg) rotateX(5deg);
+
+        }
+
+
+
+        .qr-scanner {
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .qr-scanner::after {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            right: 0;
+
+            height: 2px;
+
+            background: #22d3ee;
+
+            animation: scan 2s linear infinite;
+
+            box-shadow: 0 0 10px #22d3ee;
+
+        }
+
+
+
+        @keyframes scan {
+
+            0% {
+                top: 0;
+            }
+
+            100% {
+                top: 100%;
+            }
+
+        }
+
+
+
+        .btn-shine {
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+
+        .btn-shine::before {
+
+            content: '';
+
+            position: absolute;
+
+            top: 0;
+
+            left: -100%;
+
+            width: 100%;
+
+            height: 100%;
+
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+
+            transition: 0.5s;
+
+        }
+
+
+
+        .btn-shine:hover::before {
+
+            left: 100%;
+
+        }
+
+
+
+        .pattern-bg {
+
+            background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.15) 1px, transparent 0);
+
+            background-size: 40px 40px;
+
+        }
+    </style>
+
+</head>
+
+<body class="min-h-screen pattern-bg">
+
+    <!-- Navigation -->
+
+    <nav class="fixed w-full z-50 glass-effect border-b border-cyan-500/20">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="flex justify-between items-center h-16">
+
+                <div class="flex items-center space-x-2">
+
+                    <div class="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center text-white font-bold text-xl">ম</div>
+
+                    <span class="text-white font-bold text-lg bengali-font">মামা ভাগ্নে</span>
+
+                </div>
+
+                <div class="hidden md:flex space-x-8">
+
+                    <a href="#home" class="text-cyan-100 hover:text-white transition">হোম</a>
+
+                    <a href="#services" class="text-cyan-100 hover:text-white transition">সেবাসমূহ</a>
+
+                    <a href="#contact" class="text-cyan-100 hover:text-white transition">যোগাযোগ</a>
+
+                </div>
+
+                <button onclick="toggleMenu()" class="md:hidden text-white text-2xl">
+
+                    <i class="fas fa-bars"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- Mobile Menu -->
+
+        <div id="mobileMenu" class="hidden md:hidden glass-effect border-t border-cyan-500/20">
+
+            <div class="px-4 pt-2 pb-4 space-y-2">
+
+                <a href="#home" class="block text-cyan-100 py-2">হোম</a>
+
+                <a href="#services" class="block text-cyan-100 py-2">সেবাসমূহ</a>
+
+                <a href="#contact" class="block text-cyan-100 py-2">যোগাযোগ</a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    <!-- Hero Section -->
+
+    <section id="home" class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
+
+        <!-- Animated Background Elements -->
+
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+
+            <div class="absolute top-20 left-10 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl floating"></div>
+
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl floating" style="animation-delay: 2s;"></div>
+
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-400/10 rounded-full blur-3xl"></div>
+
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                <!-- Left Content -->
+
+                <div class="text-center md:text-left space-y-6">
+
+                    <div class="inline-block px-4 py-2 rounded-full bg-cyan-500/20 border border-cyan-400/30 text-cyan-300 text-sm font-semibold mb-4 animate-pulse">
+
+                        <i class="fas fa-star mr-2"></i>বিসমিল্লাহির রহমানির রহিম
+
+                    </div>
+
+
+
+                    <h1 class="text-5xl md:text-7xl font-black text-white bengali-font leading-tight text-shadow">
+
+                        মামা <span class="text-cyan-400">ভাগ্নে</span><br>
+
+                        <span class="text-3xl md:text-5xl font-bold text-cyan-200">ফ্যাশন হাউস</span>
+
+                    </h1>
+
+
+
+                    <p class="text-cyan-100 text-lg md:text-xl leading-relaxed max-w-lg mx-auto md:mx-0">
+
+                        আধুনিক ফ্যাশনের সাথে ঐতিহ্যের মিলন। আমরা প্রদান করি উচ্চমানের পোশাক, বিশেষভাবে তৈরি করা আপনার স্টাইলের জন্য।
+
+                    </p>
+
+
+
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-4">
+
+                        <a href="tel:01571-056749" class="btn-shine px-8 py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-full font-bold text-lg shadow-lg hover:shadow-cyan-500/50 transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+
+                            <i class="fas fa-phone-alt"></i>
+
+                            কল করুন
+
+                        </a>
+
+                        <a href="https://wa.me/8801571056749" target="_blank" class="px-8 py-4 glass-effect text-white rounded-full font-bold text-lg border border-cyan-400/30 hover:bg-cyan-500/20 transition flex items-center justify-center gap-2">
+
+                            <i class="fab fa-whatsapp text-green-400"></i>
+
+                            WhatsApp
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <!-- Right Content - Digital Card -->
+
+                <div class="relative">
+
+                    <div class="card-3d relative bg-gradient-to-br from-cyan-600 to-teal-700 rounded-3xl p-8 shadow-2xl border border-white/20 overflow-hidden">
+
+                        <!-- Decorative Elements -->
+
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-2xl"></div>
+
+                        <div class="absolute bottom-0 left-0 w-40 h-40 bg-cyan-400/20 rounded-full -ml-20 -mb-20 blur-2xl"></div>
+
+
+
+                        <!-- Card Content -->
+
+                        <div class="relative z-10 text-center space-y-6">
+
+                            <div class="space-y-2">
+
+                                <p class="text-cyan-200 text-sm tracking-widest uppercase">বিসমিল্লাহির রহমানির রহিম</p>
+
+                                <h2 class="text-4xl md:text-5xl font-black text-white bengali-font text-shadow">মামা ভাগ্নে</h2>
+
+                                <p class="text-2xl text-cyan-100 bengali-font">ফ্যাশন হাউস</p>
+
+                            </div>
+
+
+
+                            <div class="w-24 h-1 bg-gradient-to-r from-transparent via-white to-transparent mx-auto opacity-50"></div>
+
+
+
+                            <!-- QR Code Placeholder with Animation -->
+
+                            <div class="flex justify-center">
+
+                                <div class="qr-scanner bg-white p-4 rounded-xl shadow-inner">
+
+                                    <div class="w-32 h-32 bg-gray-900 rounded-lg flex items-center justify-center relative overflow-hidden">
+
+                                        <i class="fas fa-qrcode text-6xl text-white"></i>
+
+                                        <div class="absolute inset-0 bg-gradient-to-b from-cyan-400/20 to-transparent"></div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+
+                            <div class="space-y-3 text-left pt-4">
+
+                                <a href="tel:01571-056749" class="flex items-center gap-3 text-white hover:text-cyan-200 transition group">
+
+                                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition">
+
+                                        <i class="fas fa-phone-alt"></i>
+
+                                    </div>
+
+                                    <span class="text-lg">01571-056749</span>
+
+                                </a>
+
+                                <a href="mailto:mamavagnefashionhouse@gmail.com" class="flex items-center gap-3 text-white hover:text-cyan-200 transition group">
+
+                                    <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition">
+
+                                        <i class="fas fa-envelope"></i>
+
+                                    </div>
+
+                                    <span class="text-sm md:text-lg break-all">mamavagnefashionhouse@gmail.com</span>
+
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Floating Badge -->
+
+                    <div class="absolute -bottom-6 -right-6 bg-white text-cyan-900 rounded-2xl p-4 shadow-xl floating" style="animation-delay: 1s;">
+
+                        <div class="flex items-center gap-2">
+
+                            <i class="fas fa-check-circle text-green-500 text-2xl"></i>
+
+                            <div>
+
+                                <p class="font-bold text-sm">ভেরিফাইড</p>
+
+                                <p class="text-xs text-gray-600">বিজনেস</p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Features/Services Section -->
+
+    <section id="services" class="py-20 relative">
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 bengali-font">আমাদের সেবাসমূহ</h2>
+
+                <div class="w-20 h-1 bg-cyan-500 mx-auto rounded-full"></div>
+
+            </div>
+
+
+
+            <div class="grid md:grid-cols-3 gap-8">
+
+                <!-- Service 1 -->
+
+                <div class="glass-effect rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300 border border-cyan-500/20 group">
+
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition">
+
+                        <i class="fas fa-tshirt"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-3 bengali-font">কাস্টম ডিজাইন</h3>
+
+                    <p class="text-cyan-100 leading-relaxed">আপনার পছন্দ অনুযায়ী কাস্টমাইজড পোশাক ডিজাইন এবং তৈরি করা হয়।</p>
+
+                </div>
+
+
+
+                <!-- Service 2 -->
+
+                <div class="glass-effect rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300 border border-cyan-500/20 group">
+
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition">
+
+                        <i class="fas fa-cut"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-3 bengali-font">আল্টারেশন</h3>
+
+                    <p class="text-cyan-100 leading-relaxed">পেশাদারি আল্টারেশন সার্ভিস যা আপনার পোশাককে পারফেক্ট ফিট করবে।</p>
+
+                </div>
+
+
+
+                <!-- Service 3 -->
+
+                <div class="glass-effect rounded-2xl p-8 hover:transform hover:-translate-y-2 transition duration-300 border border-cyan-500/20 group">
+
+                    <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-teal-500 rounded-2xl flex items-center justify-center text-white text-3xl mb-6 group-hover:scale-110 transition">
+
+                        <i class="fas fa-shipping-fast"></i>
+
+                    </div>
+
+                    <h3 class="text-xl font-bold text-white mb-3 bengali-font">হোম ডেলিভারি</h3>
+
+                    <p class="text-cyan-100 leading-relaxed">আপনার তৈরি করা পোশাক সরাসরি আপনার বাড়িতে পৌঁছে দেওয়া হয়।</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Contact Section -->
+
+    <section id="contact" class="py-20 relative overflow-hidden">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-cyan-900/30"></div>
+
+
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="glass-effect rounded-3xl p-8 md:p-12 border border-cyan-500/30 shadow-2xl">
+
+                <div class="text-center mb-10">
+
+                    <h2 class="text-3xl font-bold text-white mb-4 bengali-font">যোগাযোগ করুন</h2>
+
+                    <p class="text-cyan-200">আমাদের সাথে সরাসরি যোগাযোগ করতে নিচের তথ্যগুলো ব্যবহার করুন</p>
+
+                </div>
+
+
+
+                <div class="grid md:grid-cols-2 gap-8">
+
+                    <!-- Contact Info -->
+
+                    <div class="space-y-6">
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+
+                            <div class="w-12 h-12 bg-cyan-500 rounded-full flex items-center justify-center text-white text-xl shrink-0">
+
+                                <i class="fas fa-phone-alt"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h4 class="text-white font-semibold mb-1">ফোন</h4>
+
+                                <a href="tel:01571-056749" class="text-cyan-200 hover:text-white transition text-lg">01571-056749</a>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center text-white text-xl shrink-0">
+
+                                <i class="fas fa-envelope"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h4 class="text-white font-semibold mb-1">ইমেইল</h4>
+
+                                <a href="mailto:mamavagnefashionhouse@gmail.com" class="text-cyan-200 hover:text-white transition text-sm break-all">mamavagnefashionhouse@gmail.com</a>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <div class="flex items-start gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition">
+
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white text-xl shrink-0">
+
+                                <i class="fab fa-whatsapp"></i>
+
+                            </div>
+
+                            <div>
+
+                                <h4 class="text-white font-semibold mb-1">WhatsApp</h4>
+
+                                <a href="https://wa.me/8801571056749" target="_blank" class="text-cyan-200 hover:text-white transition">মেসেজ পাঠান</a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Quick Actions -->
+
+                    <div class="space-y-4">
+
+                        <a href="tel:01571-056749" class="block w-full py-4 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-xl font-bold text-center hover:shadow-lg hover:shadow-cyan-500/30 transition transform hover:-translate-y-1">
+
+                            <i class="fas fa-phone-alt mr-2"></i> সরাসরি কল করুন
+
+                        </a>
+
+                        <a href="mailto:mamavagnefashionhouse@gmail.com" class="block w-full py-4 glass-effect text-white rounded-xl font-bold text-center border border-cyan-400/30 hover:bg-cyan-500/20 transition">
+
+                            <i class="fas fa-envelope mr-2"></i> ইমেইল পাঠান
+
+                        </a>
+
+                        <button onclick="saveContact()" class="block w-full py-4 bg-white text-cyan-900 rounded-xl font-bold text-center hover:bg-cyan-50 transition">
+
+                            <i class="fas fa-address-card mr-2"></i> কন্ট্যাক্ট সেভ করুন
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+
+    <footer class="bg-slate-900 border-t border-cyan-500/20 py-8">
+
+        <div class="max-w-7xl mx-auto px-4 text-center">
+
+            <p class="text-cyan-400/60 text-sm">
+
+                © ২০২৪ মামা ভাগ্নে ফ্যাশন হাউস | সর্বস্বত্ব সংরক্ষিত
+
+            </p>
+
+            <p class="text-cyan-600/40 text-xs mt-2">
+
+                Modified by Md Saeim
+
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- Save Contact Modal -->
+
+    <div id="saveModal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50 p-4">
+
+        <div class="glass-effect rounded-2xl p-6 max-w-sm w-full border border-cyan-500/30">
+
+            <h3 class="text-xl font-bold text-white mb-4 bengali-font text-center">কন্ট্যাক্ট সেভ করুন</h3>
+
+            <div class="bg-white p-4 rounded-lg mb-4">
+
+                <div class="text-center text-gray-800">
+
+                    <p class="font-bold text-lg">মামা ভাগ্নে ফ্যাশন হাউস</p>
+
+                    <p class="text-sm text-gray-600">01571-056749</p>
+
+                    <p class="text-xs text-gray-500 break-all">mamavagnefashionhouse@gmail.com</p>
+
+                </div>
+
+            </div>
+
+            <div class="flex gap-3">
+
+                <button onclick="closeModal()" class="flex-1 py-2 border border-cyan-500/30 text-cyan-300 rounded-lg hover:bg-cyan-500/20 transition">বন্ধ করুন</button>
+
+                <a href="data:text/vcard;charset=utf-8,BEGIN:VCARD%0AVERSION:3.0%0AFN:মামা ভাগ্নে ফ্যাশন হাউস%0ATEL:01571-056749%0AEMAIL:mamavagnefashionhouse@gmail.com%0AEND:VCARD" download="mama_vagne_fashion_house.vcf" class="flex-1 py-2 bg-cyan-500 text-white rounded-lg text-center hover:bg-cyan-600 transition">ডাউনলোড</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+
+        function toggleMenu() {
+
+            const menu = document.getElementById('mobileMenu');
+
+            menu.classList.toggle('hidden');
+
+        }
+
+
+
+        // Save Contact Modal
+
+        function saveContact() {
+
+            document.getElementById('saveModal').classList.remove('hidden');
+
+            document.getElementById('saveModal').classList.add('flex');
+
+        }
+
+
+
+        function closeModal() {
+
+            document.getElementById('saveModal').classList.add('hidden');
+
+            document.getElementById('saveModal').classList.remove('flex');
+
+        }
+
+
+
+        // Smooth Scroll
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+            anchor.addEventListener('click', function(e) {
+
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+
+                if (target) {
+
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Close mobile menu if open
+
+                    document.getElementById('mobileMenu').classList.add('hidden');
+
+                }
+
+            });
+
+        });
+
+
+
+        // Add scroll effect to navbar
+
+        window.addEventListener('scroll', () => {
+
+            const nav = document.querySelector('nav');
+
+            if (window.scrollY > 50) {
+
+                nav.classList.add('shadow-lg');
+
+                nav.classList.add('bg-slate-900/90');
+
+            } else {
+
+                nav.classList.remove('shadow-lg');
+
+                nav.classList.remove('bg-slate-900/90');
+
+            }
+
+        });
+
+
+
+        // 3D Card Effect on Mouse Move
+
+        const card = document.querySelector('.card-3d');
+
+        if (card) {
+
+            card.addEventListener('mousemove', (e) => {
+
+                const rect = card.getBoundingClientRect();
+
+                const x = e.clientX - rect.left;
+
+                const y = e.clientY - rect.top;
+
+
+
+                const centerX = rect.width / 2;
+
+                const centerY = rect.height / 2;
+
+
+
+                const rotateX = (y - centerY) / 20;
+
+                const rotateY = (centerX - x) / 20;
+
+
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+
+            });
+
+
+
+            card.addEventListener('mouseleave', () => {
+
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+
+            });
+
+        }
+    </script>
+
+</body>
+
+</html>
